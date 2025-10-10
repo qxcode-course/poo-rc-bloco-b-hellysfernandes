@@ -1,0 +1,4 @@
+2025-10-09 09:28:43, EXEC, v:1, k:poo@chinela, mode:LOCK, rate:0, size:18
+2025-10-09 09:28:44, EXEC, v:1, k:poo@chinela, mode:LOCK, rate:0
+2025-10-09 09:40:19, EXEC, v:1, k:poo@chinela, mode:LOCK, rate:0, size:24
+2025-10-09 10:00:36, EXEC, v:1, k:poo@chinela, mode:FREE, size:27
