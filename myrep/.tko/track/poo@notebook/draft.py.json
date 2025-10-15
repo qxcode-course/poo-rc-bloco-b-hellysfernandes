@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-14_11-33-19",
+            "content": "@@ -72,57 +72,4 @@\n alse\n-%0A%0A    def __str__(self):%0A        return self.__ligado\n",
+            "lines": "3"
+        },
+        {
+            "label": "2025-10-14_11-35-37",
+            "content": "@@ -125,14 +125,4 @@\n gado\n-%0A    %0A    \n",
+            "lines": "6"
+        },
+        {
+            "label": "2025-10-15_10-52-49",
+            "content": "class Notebook:\n    def __init__(self):\n        self.__ligado: bool = False\n\n    def __str__(self):\n        return self.__ligado\n    \n    ",
+            "lines": "8"
+        }
+    ]
+}

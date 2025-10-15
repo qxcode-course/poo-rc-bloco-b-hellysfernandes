@@ -77,6 +77,16 @@
         },
         {
             "label": "2025-10-10_11-22-44",
+            "content": "@@ -326,16 +326,42 @@\n roupa%22)%0A\n+        tamanho = input()%0A\n         \n@@ -382,12 +382,15 @@\n nho(\n-%22XG%22\n+tamanho\n )%0A%0A \n",
+            "lines": "22"
+        },
+        {
+            "label": "2025-10-11_21-27-19",
+            "content": "@@ -330,34 +330,8 @@\n a%22)%0A\n-        tamanho = input()%0A\n     \n@@ -352,23 +352,20 @@\n Tamanho(\n-tamanho\n+%22XG%22\n )%0A%0A    p\n",
+            "lines": "21"
+        },
+        {
+            "label": "2025-10-12_20-23-55",
             "content": "class Camisa:\n    def __init__(self):\n        self.__tamanho: str = \"\"\n\n    def getTamanho(self) -> str:\n        return self.__tamanho\n    \n    def setTamanho(self, valor: str):\n        self.__tamanho = valor\n\ndef main():\n\n    camisa = Camisa()\n    \n    while camisa.getTamanho() == \"\":\n\n        print(\"Digite seu tamanho de roupa\")\n        tamanho = input()\n        camisa.setTamanho(tamanho)\n\n    print(\"Parabens, voc\u00ea comprou uma roupa tamanho\", camisa.getTamanho())\nmain()",
             "lines": "22"
         }

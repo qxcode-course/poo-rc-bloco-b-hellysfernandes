@@ -112,8 +112,53 @@
         },
         {
             "label": "2025-10-10_08-52-15",
-            "content": "class Chinela:\n    def __init__(self):\n        self.__size: int = 0\n    \n    def getSize(self) -> int:\n        return self.__size\n    \n    def setSize(self, valor: int):\n        if valor >= 20 and valor <= 50:\n            self.__size = valor\n            return\n        return print(\"valor nao esta no padaro de chinelas\")\n        \n\ndef main():\n\n    chinela = Chinela()\n\n    while chinela.getSize() == 0:\n        \n        print(\"digite seu tamanho de chinela\")\n        size = int(input())\n        chinela.setSize(size)\n\n    print(\"parabens, voce comprou uma chinela tamanho\", chinela.getSise())\nmain()",
+            "content": "@@ -324,16 +324,17 @@\n        %0A\n+%0A\n def main\n",
             "lines": "26"
+        },
+        {
+            "label": "2025-10-11_21-11-22",
+            "content": "@@ -471,15 +471,20 @@\n e = \n+int(\n input()\n+)\n %0A   \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-11_21-24-47",
+            "content": "@@ -452,16 +452,39 @@\n inela%22)%0A\n+        size = input()%0A\n         \n@@ -503,12 +503,12 @@\n ize(\n-%2244%22\n+size\n )%0A%0A \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-11_22-12-31",
+            "content": "@@ -456,31 +456,8 @@\n a%22)%0A\n-        size = input()%0A\n     \n@@ -476,20 +476,20 @@\n setSize(\n-size\n+%2244%22\n )%0A%0A    p\n",
+            "lines": "24"
+        },
+        {
+            "label": "2025-10-11_22-43-46",
+            "content": "@@ -1,599 +1,104 @@\n-class Chinela:%0A    def __init__(self):%0A        self.__size: int = 0%0A    %0A    def getSize(self) -%3E int:%0A        return self.__size%0A    %0A    def setSize(self, valor: int):%0A        if valor %3E= 20 and valor %3C= 50:%0A            self.__size = valor%0A            return%0A        return print(%22valor nao esta no padaro de chinelas%22)%0A        %0Adef main():%0A%0A    chinela = Chinela()%0A%0A    while chinela.getSize() == 0:%0A        %0A        print(%22digite seu tamanho de chinela%22)%0A        size = int(input())%0A        chinela.setSize(size)%0A%0A    print(%22parabens, voce comprou uma chinela tamanho%22, chinela.getSize())%0Amain()\n+@@ -471,20 +471,15 @@%0A e = %0A-int(%0A input()%0A-)%0A %250A   %0A@@ -575,17 +575,17 @@%0A la.getSi%0A-z%0A+s%0A e())%250Amai%0A\n",
+            "lines": "11"
+        },
+        {
+            "label": "2025-10-12_20-24-19",
+            "content": "@@ -474,16 +474,17 @@\n  int\n-=\n+(\n input()\n+)\n %0A   \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-15_10-34-31",
+            "content": "@@ -470,17 +470,24 @@\n ze = int\n- \n+=input()\n %0A       \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-15_10-35-20",
+            "content": "@@ -180,17 +180,17 @@\n f valor \n-%3C\n+%3E\n = 20 and\n@@ -247,25 +247,33 @@\n     \n-else:%0A           \n+    return%0A        return\n  pri\n@@ -474,17 +474,9 @@\n  int\n-(input())\n+ \n %0A   \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-15_10-39-54",
+            "content": "@@ -180,17 +180,17 @@\n f valor \n-%3E\n+%3C\n = 20 and\n@@ -247,33 +247,25 @@\n     \n-    return%0A        return\n+else:%0A           \n  pri\n@@ -456,9 +456,8 @@\n     \n-#\n size\n@@ -500,10 +500,12 @@\n ize(\n-30\n+size\n )%0A%0A \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-15_10-44-22",
+            "content": "class Chinela:\n    def __init__(self):\n        self.__size: int = 0\n    \n    def getSize(self) -> int:\n        return self.__size\n    \n    def setSize(self, valor: int):\n        if valor >= 20 and valor <= 50:\n            self.__size = valor\n            return\n        return print(\"valor nao esta no padaro de chinelas\")\n        \ndef main():\n\n    chinela = Chinela()\n\n    while chinela.getSize() == 0:\n        \n        print(\"digite seu tamanho de chinela\")\n        #size = int(input())\n        chinela.setSize(30)\n\n    print(\"parabens, voce comprou uma chinela tamanho\", chinela.getSize())\nmain()",
+            "lines": "25"
         }
     ]
 }

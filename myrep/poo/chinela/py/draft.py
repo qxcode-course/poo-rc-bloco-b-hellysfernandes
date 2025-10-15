@@ -11,7 +11,6 @@ class Chinela:
             return
         return print("valor nao esta no padaro de chinelas")
         
-
 def main():
 
     chinela = Chinela()
@@ -19,8 +18,8 @@ def main():
     while chinela.getSize() == 0:
         
         print("digite seu tamanho de chinela")
-        size = int(input())
-        chinela.setSize(size)
+        #size = int(input())
+        chinela.setSize(30)
 
-    print("parabens, voce comprou uma chinela tamanho", chinela.getSise())
+    print("parabens, voce comprou uma chinela tamanho", chinela.getSize())
 main()
