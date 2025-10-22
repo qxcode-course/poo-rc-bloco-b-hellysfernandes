@@ -12,8 +12,13 @@
         },
         {
             "label": "2025-10-15_10-52-49",
-            "content": "class Notebook:\n    def __init__(self):\n        self.__ligado: bool = False\n\n    def __str__(self):\n        return self.__ligado\n    \n    ",
+            "content": "@@ -82,1040 +82,57 @@\n def \n-getLigado(self) -%3E bool:%0A        return self.__ligado%0A    %0A    def setStatus(self) -%3E str:%0A        if self.__ligado == False:%0A            return %22Desligado%22%0A        return %22ligado%22%0A    %0A    def setLigar(self) -%3E None:%0A        self.__ligado = True%0A%0A    def setDesligar(self) -%3E None:%0A        self.__ligado = False%0A%0A    def setUsar(self, usar) -%3E str:%0A        if self.__ligado == True:%0A            print(f%22usado por %7Busar%7D minutos%22)%0A            return%0A        print(%22erro: ligue o notebook primeiro%22)%0A    %0Adef main():%0A%0A    notebook = Notebook()%0A%0A    while True:%0A%0A        line: str = input()%0A        print(%22$%22 + line)%0A        args: list%5Bstr%5D = line.split(%22 %22)%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22show%22:%0A            print(f%22status: %7Bnotebook.setStatus()%7D%22)%0A        elif args%5B0%5D == %22ligar%22:%0A            notebook.setLigar()%0A        elif args%5B0%5D == %22desligar%22:%0A            notebook.setDesligar()%0A        elif args%5B0%5D == %22usar%22:%0A            usar: int = int(args%5B1%5D)%0A            notebook.setUsar(usar)%0Amain()\n+__str__(self):%0A        return self.__ligado%0A    %0A    \n",
             "lines": "8"
+        },
+        {
+            "label": "2025-10-22_11-31-57",
+            "content": "class Notebook:\n    def __init__(self):\n        self.__ligado: bool = False\n\n    def getLigado(self) -> bool:\n        return self.__ligado\n    \n    def setStatus(self) -> str:\n        if self.__ligado == False:\n            return \"Desligado\"\n        return \"ligado\"\n    \n    def setLigar(self) -> None:\n        self.__ligado = True\n\n    def setDesligar(self) -> None:\n        self.__ligado = False\n\n    def setUsar(self, usar) -> str:\n        if self.__ligado == True:\n            print(f\"usado por {usar} minutos\")\n            return\n        print(\"erro: ligue o notebook primeiro\")\n    \ndef main():\n\n    notebook = Notebook()\n\n    while True:\n\n        line: str = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(f\"status: {notebook.setStatus()}\")\n        elif args[0] == \"ligar\":\n            notebook.setLigar()\n        elif args[0] == \"desligar\":\n            notebook.setDesligar()\n        elif args[0] == \"usar\":\n            usar: int = int(args[1])\n            notebook.setUsar(usar)\nmain()",
+            "lines": "46"
         }
     ]
 }

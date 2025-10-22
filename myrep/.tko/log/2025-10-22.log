@@ -1,0 +1,33 @@
+2025-10-22 11:31:56, MOVE, v:1, k:poo@notebook, mode:PICK
+2025-10-22 11:31:57, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0, size:46
+2025-10-22 11:32:01, MOVE, v:1, k:poo@notebook, mode:BACK
+2025-10-22 11:32:04, MOVE, v:1, k:poo@notebook, mode:PICK
+2025-10-22 11:32:04, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:32:06, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:32:30, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:20, MOVE, v:1, k:poo@notebook, mode:PICK
+2025-10-22 11:33:21, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:22, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:33, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:33, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:34, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:34, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:34, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:35, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:35, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:35, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:35, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:35, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:36, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:36, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:36, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:37, EXEC, v:1, k:poo@notebook, mode:LOCK, rate:0
+2025-10-22 11:33:40, MOVE, v:1, k:poo@notebook, mode:BACK
