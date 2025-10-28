@@ -1,0 +1,179 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-28_11-25-05",
+            "content": "@@ -1,4479 +0,0 @@\n-class Carregador:%0A    def __init__(self, potencia: int = 0):%0A        self.__potencia: int = potencia%0A%0A    def getPotencia(self) -%3E int:%0A        return self.__potencia%0A    %0A    def setCarregadorInit(self, carregadorInit: int) -%3E None:%0A        self.__potencia = carregadorInit%0A    %0A    def __str__(self) -%3E str:%0A        return f%22(potencia %7Bself.__potencia%7D)%22%0A%0Aclass Bateria:%0A    def __init__(self, capacidade: int = 0):%0A        self.__capacidade: int = capacidade%0A        self.__carga: int = capacidade%0A%0A    def getCapacidade(self) -%3E int:%0A        return self.__capacidade%0A    %0A    def getCarga(self) -%3E int:%0A        return self.__carga%0A    %0A    def setBateriInit(self, batInit: int) -%3E None:%0A        self.__capacidade = batInit%0A        self.__carga = batInit%0A%0A    def setDecrement(self, decrement: int) -%3E None:%0A        self.__carga -= decrement%0A    %0A    def setIncrement(self, increment: int) -%3E None:%0A        self.__carga += increment%0A%0A    def __str__(self) -%3E str:%0A        return f%22(%7Bself.__carga%7D/%7Bself.__capacidade%7D)%22%0A%0Aclass Notebook:%0A    def __init__(self):%0A        self.__ligado: bool = False%0A        self.__bateria: Bateria %7C None = None%0A        self.__carregador: Carregador %7C None = None%0A%0A    def getLigado(self) -%3E bool:%0A        return self.__ligado%0A    %0A    def setStatus(self) -%3E str:%0A        if self.__ligado == False:%0A            return %22Desligado%22%0A        return %22ligado%22%0A    %0A    def ligar(self) -%3E None:%0A        if self.__bateria == None and self.__carregador == None:%0A            print(%22n%C3%A3o foi poss%C3%ADvel ligar%22)%0A        else:%0A            self.__ligado = True%0A%0A    def desligar(self) -%3E None:%0A        self.__ligado = False%0A%0A    def usar(self, usar: int) -%3E None:%0A        if self.__ligado == True:%0A            if self.__bateria != None or self.__carregador != None:%0A                if self.__carregador != None:%0A                    increment: int = usar * self.__carregador.getPotencia()%0A                    self.__bateria.setIncrement(increment)%0A                    print(%22Notebook utilizado com sucesso%22)%0A                    return%0A                elif usar %3E= self.__bateria.getCarga():%0A                    self.__ligado = False%0A                    print(f%22usado por %7Bself.__bateria.getCarga()%7D minutos, notebook desligado%22)%0A                    self.__bateria.setDecrement(self.__bateria.getCarga())%0A                    return%0A                else:%0A                    self.__bateria.setDecrement(usar)%0A                    print(f%22usado por %7Busar%7D minutos%22)%0A                    return%0A            return %22erro: capacidade maxima exedida%22%0A        print(%22erro: ligue o notebook primeiro%22)%0A%0A    def setBateria(self) -%3E str:%0A        if self.__bateria == None:%0A            return %22Nenhuma%22%0A        return f%22%7Bself.__bateria%7D%22%0A    %0A    def setBateriaIncluida(self, bateria: Bateria) -%3E None:%0A        self.__bateria = bateria%0A    %0A    def rmBateria(self) -%3E None:%0A        self.__bateria = None%0A        return %22bateria removida%22%0A    %0A    def setCarregador(self) -%3E str:%0A        if self.__carregador == None:%0A            return %22Desconectado%22%0A        return f%22%7Bself.__carregador%7D%22%0A    %0A    def setCarregadorIncluir(self, carregador: Carregador) -%3E None:%0A        self.__carregador = carregador%0A%0Adef main():%0A%0A    notebook = Notebook()%0A    bateria = Bateria()%0A    carregador = Carregador()%0A%0A    while True:%0A%0A        line: str = input()%0A        print(%22$%22 + line)%0A        args: list%5Bstr%5D = line.split(%22 %22)%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22show%22:%0A            print(f%22status: %7Bnotebook.setStatus()%7D, batrtia: %7Bnotebook.setBateria()%7D, Carregador: %7Bnotebook.setCarregador()%7D%22)%0A        elif args%5B0%5D == %22ligar%22:%0A            notebook.ligar()%0A        elif args%5B0%5D == %22desligar%22:%0A            notebook.desligar()%0A        elif args%5B0%5D == %22usar%22:%0A            usar: int = int(args%5B1%5D)%0A            notebook.usar(usar)%0A        elif args%5B0%5D == %22bateria%22:%0A            batInit: int = int(args%5B1%5D)%0A            bateria.setBateriInit(batInit)%0A        elif args%5B0%5D == %22mostrar%22:%0A            print(bateria)%0A        elif args%5B0%5D == %22incluir%22:%0A            notebook.setBateriaIncluida(bateria)%0A        elif args%5B0%5D == %22remover%22:%0A            notebook.rmBateria()%0A        elif args%5B0%5D == %22carregador%22:%0A            carregadorInit: int = int(args%5B1%5D)%0A            carregador.setCarregadorInit(carregadorInit)%0A        elif args%5B0%5D == %22cabo%22:%0A            print(carregador)%0A        elif args%5B0%5D == %22conctar%22:%0A            notebook.setCarregadorIncluir(carregador)%0Amain()\n",
+            "lines": "0"
+        },
+        {
+            "label": "2025-10-28_11-25-25",
+            "content": "@@ -3487,234 +3487,8 @@\n w%22:%0A\n-            if bateria == None:%0A                print(%22notebook desligado%22)%0A            elif carregador == None:%0A                print(f%22status: %7Bnotebook.setStatus()%7D, batrtia: %7Bnotebook.setBateria()%7D%22)%0A            else:%0A    \n     \n",
+            "lines": "140"
+        },
+        {
+            "label": "2025-10-28_11-28-52",
+            "content": "@@ -3505,25 +3505,28 @@\n  bateria == \n-0\n+None\n :%0A          \n@@ -3590,17 +3590,20 @@\n ador == \n-0\n+None\n :%0A      \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-29-32",
+            "content": "@@ -3505,29 +3505,16 @@\n  bateria\n-.__capacidade\n  == 0:%0A \n@@ -3583,27 +3583,16 @@\n rregador\n-.__potencia\n  == 0:%0A \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-30-52",
+            "content": "@@ -3506,20 +3506,19 @@\n bateria.\n-getC\n+__c\n apacidad\n@@ -3518,18 +3518,16 @@\n pacidade\n-()\n  == 0:%0A \n@@ -3593,28 +3593,27 @@\n  carregador.\n-getP\n+__p\n otencia == 0\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-31-25",
+            "content": "@@ -3551,26 +3551,24 @@\n  print(%22\n- N\n+n\n otebook\n-:\n  desliga\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-31-42",
+            "content": "@@ -3543,32 +3543,33 @@\n          print(%22\n+ \n Notebook: deslig\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-32-01",
+            "content": "@@ -3888,16 +3888,13 @@\n == %22\n-turn_on \n+ligar\n %22:%0A \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-32-44",
+            "content": "@@ -2569,12 +2569,12 @@\n nt(%22\n-fail\n+erro\n : li\n@@ -2598,31 +2598,16 @@\n imeiro%22)\n-%0A        return\n %0A%0A    de\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-33-53",
+            "content": "@@ -2558,23 +2558,22 @@\n         \n-return \n+print(\n %22fail: l\n@@ -2597,16 +2597,32 @@\n rimeiro%22\n+)%0A        return\n %0A%0A    de\n",
+            "lines": "146"
+        },
+        {
+            "label": "2025-10-28_11-34-15",
+            "content": "@@ -1663,27 +1663,28 @@\n ar: int) -%3E \n-str\n+None\n :%0A        if\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-34-26",
+            "content": "@@ -1491,23 +1491,22 @@\n         \n-return \n+print(\n %22n%C3%A3o foi\n@@ -1521,16 +1521,17 @@\n l ligar%22\n+)\n %0A       \n@@ -1659,36 +1659,35 @@\n , usar: int) -%3E \n-None\n+str\n :%0A        if sel\n@@ -2557,22 +2557,23 @@\n         \n-print(\n+return \n %22fail: l\n@@ -2597,17 +2597,16 @@\n rimeiro%22\n-)\n %0A%0A    de\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-35-01",
+            "content": "@@ -1400,35 +1400,36 @@\n  ligar(self) -%3E \n-str\n+None\n :%0A        if sel\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-35-10",
+            "content": "@@ -1497,17 +1497,16 @@\n  return \n-f\n %22n%C3%A3o foi\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-35-30",
+            "content": "@@ -3990,17 +3990,16 @@\n esligar(\n- \n )%0A      \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-35-51",
+            "content": "@@ -3994,15 +3994,9 @@\n gar(\n-license\n+ \n )%0A  \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-36-01",
+            "content": "@@ -3922,17 +3922,16 @@\n k.ligar(\n- \n )%0A      \n@@ -3986,24 +3986,31 @@\n ok.desligar(\n+license\n )%0A        el\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-36-14",
+            "content": "@@ -3926,15 +3926,9 @@\n gar(\n-license\n+ \n )%0A  \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-36-27",
+            "content": "@@ -3922,19 +3922,23 @@\n k.ligar(\n-str\n+license\n )%0A      \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-36-35",
+            "content": "@@ -1443,26 +1443,27 @@\n ria == None \n-or\n+and\n  self.__carr\n@@ -3918,24 +3918,27 @@\n ebook.ligar(\n+str\n )%0A        el\n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-37-24",
+            "content": "@@ -1451,11 +1451,10 @@\n one \n-and\n+or\n  sel\n@@ -1489,22 +1489,24 @@\n         \n-print(\n+return f\n %22n%C3%A3o foi\n@@ -1525,28 +1525,8 @@\n gar%22\n-)%0A            return\n %0A   \n",
+            "lines": "145"
+        },
+        {
+            "label": "2025-10-28_11-38-48",
+            "content": "@@ -1443,26 +1443,27 @@\n ria == None \n-or\n+and\n  self.__carr\n",
+            "lines": "146"
+        },
+        {
+            "label": "2025-10-28_11-38-56",
+            "content": "@@ -1451,11 +1451,10 @@\n one \n-and\n+or\n  sel\n@@ -3880,25 +3880,8 @@\n %7D%22)%0A\n-                %0A\n     \n",
+            "lines": "146"
+        },
+        {
+            "label": "2025-10-28_11-39-47",
+            "content": "@@ -3961,31 +3961,8 @@\n gar(\n-print(notebook.ligar())\n )%0A  \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-41-22",
+            "content": "@@ -3953,24 +3953,47 @@\n ebook.ligar(\n+print(notebook.ligar())\n )%0A        el\n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-42-38",
+            "content": "@@ -3926,16 +3926,17 @@\n %22turn_on\n+ \n %22:%0A     \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-43-14",
+            "content": "@@ -1497,22 +1497,16 @@\n  print(%22\n-fail: \n n%C3%A3o foi \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-43-34",
+            "content": "@@ -2582,23 +2582,21 @@\n         \n-return \n+print\n (%22fail: \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-44-32",
+            "content": "@@ -4061,17 +4061,18 @@\n %5D == %22us\n-e\n+ar\n %22:%0A     \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-44-58",
+            "content": "@@ -2574,37 +2574,39 @@\n xedida%22%0A        \n-print\n+return \n (%22fail: ligue o \n@@ -2624,31 +2624,16 @@\n imeiro%22)\n-%0A        return\n %0A%0A    de\n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-10-28_11-45-58",
+            "content": "@@ -2595,24 +2595,40 @@\n (%22fail: \n-desligad\n+ligue o notebook primeir\n o%22)%0A    \n",
+            "lines": "148"
+        },
+        {
+            "label": "2025-10-28_11-46-13",
+            "content": "@@ -4492,18 +4492,17 @@\n == %22\n-set_charge\n+carregado\n r%22:%0A\n",
+            "lines": "148"
+        },
+        {
+            "label": "2025-10-28_11-47-08",
+            "content": "@@ -3737,147 +3737,8 @@\n %7D%22)%0A\n-            elif carregador.getPotencia %3E 0:%0A                print(f%22status: %7Bnotebook.setStatus()%7D, batrtia: %7Bnotebook.setCarregador()%7D%22)%0A\n     \n",
+            "lines": "148"
+        },
+        {
+            "label": "2025-10-28_11-48-44",
+            "content": "@@ -3635,18 +3635,16 @@\n Potencia\n-()\n  == 0:%0A \n@@ -3772,18 +3772,16 @@\n Potencia\n-()\n  %3E 0:%0A  \n",
+            "lines": "150"
+        },
+        {
+            "label": "2025-10-28_11-49-10",
+            "content": "class Carregador:\n    def __init__(self, potencia: int = 0):\n        self.__potencia: int = potencia\n\n    def getPotencia(self) -> int:\n        return self.__potencia\n    \n    def setCarregadorInit(self, carregadorInit: int) -> None:\n        self.__potencia = carregadorInit\n    \n    def __str__(self) -> str:\n        return f\"(potencia {self.__potencia})\"\n\nclass Bateria:\n    def __init__(self, capacidade: int = 0):\n        self.__capacidade: int = capacidade\n        self.__carga: int = capacidade\n\n    def getCapacidade(self) -> int:\n        return self.__capacidade\n    \n    def getCarga(self) -> int:\n        return self.__carga\n    \n    def setBateriInit(self, batInit: int) -> None:\n        self.__capacidade = batInit\n        self.__carga = batInit\n\n    def setDecrement(self, decrement: int) -> None:\n        self.__carga -= decrement\n    \n    def setIncrement(self, increment: int) -> None:\n        self.__carga += increment\n\n    def __str__(self) -> str:\n        return f\"({self.__carga}/{self.__capacidade})\"\n\nclass Notebook:\n    def __init__(self):\n        self.__ligado: bool = False\n        self.__bateria: Bateria | None = None\n        self.__carregador: Carregador | None = None\n\n    def getLigado(self) -> bool:\n        return self.__ligado\n    \n    def setStatus(self) -> str:\n        if self.__ligado == False:\n            return \"Desligado\"\n        return \"ligado\"\n    \n    def ligar(self) -> str:\n        if self.__bateria == None and self.__carregador == None:\n            print(\"fail: n\u00e3o foi poss\u00edvel ligar\")\n            return\n        else:\n            self.__ligado = True\n\n    def desligar(self) -> None:\n        self.__ligado = False\n\n    def usar(self, usar: int) -> None:\n        if self.__ligado == True:\n            if self.__bateria != None or self.__carregador != None:\n                if self.__carregador != None:\n                    increment: int = usar * self.__carregador.getPotencia()\n                    self.__bateria.setIncrement(increment)\n                    print(\"Notebook utilizado com sucesso\")\n                    return\n                elif usar >= self.__bateria.getCarga():\n                    self.__ligado = False\n                    print(f\"usado por {self.__bateria.getCarga()} minutos, notebook desligado\")\n                    self.__bateria.setDecrement(self.__bateria.getCarga())\n                    return\n                else:\n                    self.__bateria.setDecrement(usar)\n                    print(f\"usado por {usar} minutos\")\n                    return\n            return \"erro: capacidade maxima exedida\"\n        print(\"fail: desligado\")\n        return\n\n    def setBateria(self) -> str:\n        if self.__bateria == None:\n            return \"Nenhuma\"\n        return f\"{self.__bateria}\"\n    \n    def setBateriaIncluida(self, bateria: Bateria) -> None:\n        self.__bateria = bateria\n    \n    def rmBateria(self) -> None:\n        self.__bateria = None\n        return \"bateria removida\"\n    \n    def setCarregador(self) -> str:\n        if self.__carregador == None:\n            return \"Desconectado\"\n        return f\"{self.__carregador}\"\n    \n    def setCarregadorIncluir(self, carregador: Carregador) -> None:\n        self.__carregador = carregador\n\ndef main():\n\n    notebook = Notebook()\n    bateria = Bateria()\n    carregador = Carregador()\n\n    while True:\n\n        line: str = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            if bateria.getCapacidade() == 0:\n                print(\"Notebook: desligado\")\n            elif carregador.getPotencia() == 0:\n                print(f\"status: {notebook.setStatus()}, batrtia: {notebook.setBateria()}\")\n            elif carregador.getPotencia() > 0:\n                print(f\"status: {notebook.setStatus()}, batrtia: {notebook.setCarregador()}\")\n            else:\n                print(f\"status: {notebook.setStatus()}, batrtia: {notebook.setBateria()}, Carregador: {notebook.setCarregador()}\")\n                \n        elif args[0] == \"turn_on\":\n            notebook.ligar()\n        elif args[0] == \"desligar\":\n            notebook.desligar()\n        elif args[0] == \"use\":\n            usar: int = int(args[1])\n            notebook.usar(usar)\n        elif args[0] == \"bateria\":\n            batInit: int = int(args[1])\n            bateria.setBateriInit(batInit)\n        elif args[0] == \"mostrar\":\n            print(bateria)\n        elif args[0] == \"incluir\":\n            notebook.setBateriaIncluida(bateria)\n        elif args[0] == \"remover\":\n            notebook.rmBateria()\n        elif args[0] == \"set_charger\":\n            carregadorInit: int = int(args[1])\n            carregador.setCarregadorInit(carregadorInit)\n        elif args[0] == \"cabo\":\n            print(carregador)\n        elif args[0] == \"conctar\":\n            notebook.setCarregadorIncluir(carregador)\nmain()",
+            "lines": "150"
+        }
+    ]
+}

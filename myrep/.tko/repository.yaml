@@ -8,7 +8,7 @@ sources:
 - database: poo
   link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
   cache_path: C:\Users\helly\projetos\POO-Py\poo-rc-bloco-b-hellysfernandes\myrep\.tko\cache\poo.md
-  cache_timestamp: '2025-10-22 17:03:42'
+  cache_timestamp: '2025-10-28 11:19:42'
   filters:
   - acesso
   - simples
@@ -18,12 +18,14 @@ expanded:
 tasks:
   poo@roupa: '{rate:100}'
   poo@relogio: '{rate:100}'
+  poo@notebook: '{rate:100, other:_, alone:1}'
   poo@motoca: '{rate:6}'
+  poo@charger: '{rate:5}'
 flags:
   quests: 0
-  tracks: 2
+  tracks: 0
   tasks: 0
   graph: 1
   xray: 0
 lang: py
-selected: poo@motoca
+selected: poo@charger

@@ -49,9 +49,10 @@ class Notebook:
             return "Desligado"
         return "ligado"
     
-    def ligar(self) -> None:
+    def ligar(self) -> str:
         if self.__bateria == None and self.__carregador == None:
-            print("não foi possível ligar")
+            print("fail: não foi possível ligar")
+            return
         else:
             self.__ligado = True
 
@@ -76,7 +77,8 @@ class Notebook:
                     print(f"usado por {usar} minutos")
                     return
             return "erro: capacidade maxima exedida"
-        print("erro: ligue o notebook primeiro")
+        print("fail: desligado")
+        return
 
     def setBateria(self) -> str:
         if self.__bateria == None:
@@ -113,12 +115,20 @@ def main():
         if args[0] == "end":
             break
         elif args[0] == "show":
-            print(f"status: {notebook.setStatus()}, batrtia: {notebook.setBateria()}, Carregador: {notebook.setCarregador()}")
-        elif args[0] == "ligar":
+            if bateria.getCapacidade() == 0:
+                print("Notebook: desligado")
+            elif carregador.getPotencia() == 0:
+                print(f"status: {notebook.setStatus()}, batrtia: {notebook.setBateria()}")
+            elif carregador.getPotencia() > 0:
+                print(f"status: {notebook.setStatus()}, batrtia: {notebook.setCarregador()}")
+            else:
+                print(f"status: {notebook.setStatus()}, batrtia: {notebook.setBateria()}, Carregador: {notebook.setCarregador()}")
+                
+        elif args[0] == "turn_on":
             notebook.ligar()
         elif args[0] == "desligar":
             notebook.desligar()
-        elif args[0] == "usar":
+        elif args[0] == "use":
             usar: int = int(args[1])
             notebook.usar(usar)
         elif args[0] == "bateria":
@@ -130,7 +140,7 @@ def main():
             notebook.setBateriaIncluida(bateria)
         elif args[0] == "remover":
             notebook.rmBateria()
-        elif args[0] == "carregador":
+        elif args[0] == "set_charger":
             carregadorInit: int = int(args[1])
             carregador.setCarregadorInit(carregadorInit)
         elif args[0] == "cabo":
